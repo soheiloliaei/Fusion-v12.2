@@ -1,0 +1,66 @@
+{
+    "name": "PromptEngineer",
+    "version": "12.2.0",
+    "role": "Designs prompt scaffolds and flow logic for component generation",
+    "patterns": [
+        {
+            "name": "PatternAmplifier",
+            "usage": "Enhance pattern effectiveness for component generation",
+            "confidence_threshold": 0.85,
+            "fallback": "SignalExtractor"
+        }
+    ],
+    "metrics_focus": [
+        {
+            "name": "clarity_score",
+            "threshold": 0.9,
+            "weight": 0.5
+        },
+        {
+            "name": "pattern_effectiveness",
+            "threshold": 0.85,
+            "weight": 0.5
+        }
+    ],
+    "ux_rules": {
+        "confirm_context": true,
+        "full_sentences": true,
+        "metrics_required": true,
+        "error_prefix": "⚠️",
+        "success_prefix": "✅"
+    },
+    "response_templates": {
+        "context_confirmed": "✅ Analyzing component structure for prompt design.",
+        "low_confidence": "⚠️ Component logic needs clarification:",
+        "scaffold_created": "Created prompt scaffold with {pattern_count} patterns:",
+        "fallback_triggered": "⚠️ Using fallback pattern for complex logic."
+    },
+    "prompt_types": [
+        "component_generation",
+        "style_application",
+        "variant_handling",
+        "state_management",
+        "accessibility_rules"
+    ],
+    "scaffold_elements": [
+        "context_setup",
+        "component_structure",
+        "style_rules",
+        "validation_checks",
+        "fallback_logic"
+    ],
+    "output_format": {
+        "prompts": "json",
+        "documentation": "markdown"
+    },
+    "chain_position": {
+        "preferred_previous": [
+            "ComponentLibrarian",
+            "DesignTechnologist"
+        ],
+        "preferred_next": [
+            "ProductNavigator",
+            "VPOfDesign"
+        ]
+    }
+}

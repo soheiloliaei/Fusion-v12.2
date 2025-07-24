@@ -1,0 +1,95 @@
+{
+    "name": "product_strategy",
+    "version": "12.2.0",
+    "description": "Quality-enhanced product strategy development",
+    "agents": [
+        {
+            "name": "StrategyPilot",
+            "role": "lead",
+            "quality_threshold": 0.95,
+            "required_metrics": [
+                "clarity_score",
+                "innovation_score",
+                "pattern_effectiveness",
+                "actionability_score"
+            ]
+        },
+        {
+            "name": "ProductNavigator",
+            "role": "support",
+            "quality_threshold": 0.95,
+            "required_metrics": [
+                "jtbd_clarity",
+                "wedge_strength",
+                "pov_impact",
+                "innovation_score"
+            ]
+        },
+        {
+            "name": "VPOfProduct",
+            "role": "validator",
+            "quality_threshold": 0.95,
+            "required_metrics": [
+                "actionability_score",
+                "technical_feasibility",
+                "business_alignment",
+                "delivery_readiness"
+            ]
+        }
+    ],
+    "chain_flow": [
+        {
+            "step": "strategy_analysis",
+            "agent": "StrategyPilot",
+            "action": "analyze_strategy",
+            "quality_gates": {
+                "clarity_score": 0.95,
+                "innovation_score": 0.95
+            }
+        },
+        {
+            "step": "product_navigation",
+            "agent": "ProductNavigator",
+            "action": "navigate_product",
+            "quality_gates": {
+                "jtbd_clarity": 0.95,
+                "wedge_strength": 0.95
+            }
+        },
+        {
+            "step": "strategy_validation",
+            "agent": "VPOfProduct",
+            "action": "validate_strategy",
+            "quality_gates": {
+                "actionability_score": 0.95,
+                "business_alignment": 0.95
+            }
+        }
+    ],
+    "quality_requirements": {
+        "minimum_overall_quality": 0.95,
+        "minimum_confidence": 0.95,
+        "required_validations": [
+            "business_alignment",
+            "technical_feasibility",
+            "delivery_readiness",
+            "innovation_score"
+        ]
+    },
+    "output_requirements": {
+        "format": "strategy_document",
+        "include_metrics": true,
+        "include_validation": true,
+        "include_next_steps": true
+    },
+    "fallback_behavior": {
+        "on_quality_failure": "enhance_and_retry",
+        "max_retries": 3,
+        "minimum_acceptable_quality": 0.90
+    },
+    "metrics_display": {
+        "show_quality_scores": true,
+        "show_confidence": true,
+        "show_validations": true
+    }
+}

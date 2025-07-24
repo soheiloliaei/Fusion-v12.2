@@ -1,0 +1,252 @@
+{
+    "name": "security",
+    "description": "Comprehensive security chain with penetration testing and confidence scoring",
+    "version": "12.2.0",
+    "execution_mode": "ship",
+    "chain": [
+        {
+            "agent": "SecurityAnalyst",
+            "pattern": "RiskLens",
+            "input": "component_code",
+            "output": "vulnerability_analysis",
+            "success_criteria": {
+                "pattern_effectiveness": 0.98,
+                "security_score": 0.95
+            },
+            "confidence_metrics": {
+                "analysis_depth": 0.95,
+                "coverage": 0.98,
+                "precision": 0.97,
+                "recall": 0.96
+            },
+            "security_checks": {
+                "static_analysis": true,
+                "dynamic_analysis": true,
+                "dependency_scan": true,
+                "code_quality": true
+            }
+        },
+        {
+            "agent": "PenetrationTester",
+            "pattern": "AttackSimulation",
+            "input": "vulnerability_analysis",
+            "output": "penetration_results",
+            "success_criteria": {
+                "attack_coverage": 0.95,
+                "detection_rate": 0.98
+            },
+            "confidence_metrics": {
+                "test_coverage": 0.96,
+                "attack_sophistication": 0.95,
+                "detection_accuracy": 0.97,
+                "false_positive_rate": 0.02
+            },
+            "attack_vectors": {
+                "injection": true,
+                "xss": true,
+                "csrf": true,
+                "authentication": true,
+                "authorization": true,
+                "data_exposure": true
+            }
+        },
+        {
+            "agent": "ComplianceAuditor",
+            "pattern": "ComplianceCheck",
+            "input": "penetration_results",
+            "output": "compliance_report",
+            "success_criteria": {
+                "compliance_score": 0.98,
+                "documentation_quality": 0.95
+            },
+            "confidence_metrics": {
+                "standard_coverage": 0.97,
+                "requirement_mapping": 0.96,
+                "evidence_quality": 0.95,
+                "verification_depth": 0.94
+            },
+            "standards": {
+                "owasp_top_10": true,
+                "sans_top_25": true,
+                "cwe_top_100": true,
+                "gdpr": true,
+                "hipaa": true,
+                "pci_dss": true
+            }
+        },
+        {
+            "agent": "SecurityHardener",
+            "pattern": "DefenseInDepth",
+            "input": "compliance_report",
+            "output": "hardening_plan",
+            "success_criteria": {
+                "protection_level": 0.95,
+                "implementation_feasibility": 0.90
+            },
+            "confidence_metrics": {
+                "defense_depth": 0.96,
+                "mitigation_effectiveness": 0.95,
+                "resource_efficiency": 0.94,
+                "maintainability": 0.93
+            },
+            "hardening_measures": {
+                "input_validation": true,
+                "output_encoding": true,
+                "authentication": true,
+                "authorization": true,
+                "session_management": true,
+                "error_handling": true,
+                "logging": true,
+                "monitoring": true
+            }
+        },
+        {
+            "agent": "ThreatModeler",
+            "pattern": "ThreatModeling",
+            "input": "hardening_plan",
+            "output": "threat_model",
+            "success_criteria": {
+                "model_completeness": 0.95,
+                "risk_assessment": 0.98
+            },
+            "confidence_metrics": {
+                "threat_coverage": 0.96,
+                "model_accuracy": 0.95,
+                "risk_precision": 0.97,
+                "mitigation_mapping": 0.94
+            },
+            "modeling_aspects": {
+                "attack_surface": true,
+                "trust_boundaries": true,
+                "data_flow": true,
+                "access_control": true,
+                "encryption": true
+            }
+        },
+        {
+            "agent": "SecurityValidator",
+            "pattern": "SecurityValidation",
+            "input": "threat_model",
+            "output": "security_validation",
+            "success_criteria": {
+                "validation_coverage": 0.98,
+                "confidence_score": 0.95
+            },
+            "confidence_metrics": {
+                "validation_depth": 0.96,
+                "test_reliability": 0.95,
+                "result_consistency": 0.97,
+                "evidence_quality": 0.94
+            },
+            "validation_types": {
+                "unit_tests": true,
+                "integration_tests": true,
+                "penetration_tests": true,
+                "fuzzing": true,
+                "stress_testing": true
+            }
+        }
+    ],
+    "success_criteria": {
+        "overall_security_score": 0.95,
+        "confidence_score": 0.95,
+        "implementation_feasibility": 0.90,
+        "maintenance_complexity": 0.85
+    },
+    "confidence_requirements": {
+        "minimum_confidence": 0.90,
+        "confidence_interval": 0.95,
+        "evidence_quality": 0.95,
+        "validation_depth": 0.90
+    },
+    "security_requirements": {
+        "authentication": {
+            "mfa": true,
+            "password_policies": true,
+            "session_management": true,
+            "token_validation": true
+        },
+        "authorization": {
+            "rbac": true,
+            "permission_validation": true,
+            "resource_protection": true,
+            "scope_validation": true
+        },
+        "data_protection": {
+            "encryption_at_rest": true,
+            "encryption_in_transit": true,
+            "key_management": true,
+            "data_masking": true
+        },
+        "input_validation": {
+            "sanitization": true,
+            "type_checking": true,
+            "boundary_validation": true,
+            "format_validation": true
+        },
+        "output_encoding": {
+            "html_encoding": true,
+            "json_encoding": true,
+            "sql_escaping": true,
+            "xml_encoding": true
+        },
+        "logging_monitoring": {
+            "audit_logging": true,
+            "error_logging": true,
+            "access_logging": true,
+            "performance_monitoring": true
+        }
+    },
+    "testing_requirements": {
+        "unit_testing": {
+            "coverage_threshold": 0.95,
+            "mutation_score": 0.90
+        },
+        "integration_testing": {
+            "api_coverage": 0.95,
+            "scenario_coverage": 0.90
+        },
+        "security_testing": {
+            "penetration_testing": true,
+            "vulnerability_scanning": true,
+            "fuzzing": true,
+            "stress_testing": true
+        }
+    },
+    "metrics_display": {
+        "per_agent": true,
+        "include": [
+            "security_score",
+            "confidence_score",
+            "coverage_score",
+            "implementation_score",
+            "maintenance_score"
+        ]
+    },
+    "reporting_requirements": {
+        "executive_summary": true,
+        "technical_details": true,
+        "remediation_plan": true,
+        "compliance_mapping": true,
+        "risk_assessment": true
+    },
+    "confidence_scoring": {
+        "metrics": {
+            "analysis_confidence": 0.95,
+            "testing_confidence": 0.95,
+            "validation_confidence": 0.95,
+            "implementation_confidence": 0.90
+        },
+        "weights": {
+            "analysis": 0.25,
+            "testing": 0.25,
+            "validation": 0.25,
+            "implementation": 0.25
+        },
+        "thresholds": {
+            "minimum": 0.90,
+            "target": 0.95,
+            "excellent": 0.98
+        }
+    }
+}

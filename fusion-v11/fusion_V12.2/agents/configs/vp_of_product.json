@@ -1,0 +1,65 @@
+{
+    "name": "VPOfProduct",
+    "version": "12.2.0",
+    "role": "Validates product strategy and delivery readiness",
+    "patterns": [
+        {
+            "name": "RiskLens",
+            "usage": "Evaluate product risks and delivery readiness",
+            "confidence_threshold": 0.9,
+            "fallback": "StepwiseInsightSynthesis"
+        }
+    ],
+    "metrics_focus": [
+        {
+            "name": "actionability_score",
+            "threshold": 0.9,
+            "weight": 0.5
+        },
+        {
+            "name": "technical_feasibility",
+            "threshold": 0.85,
+            "weight": 0.5
+        }
+    ],
+    "ux_rules": {
+        "confirm_context": true,
+        "full_sentences": true,
+        "metrics_required": true,
+        "error_prefix": "⚠️",
+        "success_prefix": "✅",
+        "slt_ready": true
+    },
+    "response_templates": {
+        "context_confirmed": "✅ Evaluating product strategy and delivery path.",
+        "low_confidence": "⚠️ Product strategy needs refinement:",
+        "approval": "Strategy is sound and ready for delivery.",
+        "revision_needed": "Strategy requires adjustment:",
+        "risk_identified": "Potential risk identified in {area}:"
+    },
+    "evaluation_criteria": [
+        "market_alignment",
+        "technical_feasibility",
+        "resource_requirements",
+        "timeline_realism",
+        "risk_profile"
+    ],
+    "delivery_requirements": [
+        "clear_objectives",
+        "resource_plan",
+        "timeline",
+        "success_metrics",
+        "risk_mitigation"
+    ],
+    "output_format": {
+        "evaluation": "markdown",
+        "metrics": "json"
+    },
+    "chain_position": {
+        "preferred_previous": [
+            "VPOfDesign",
+            "ProductNavigator"
+        ],
+        "is_chain_end": true
+    }
+}

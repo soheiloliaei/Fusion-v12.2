@@ -1,0 +1,233 @@
+{
+    "name": "analytics",
+    "description": "Comprehensive analytics and monitoring system for components and chains",
+    "version": "12.2.0",
+    "execution_mode": "ship",
+    "chain": [
+        {
+            "agent": "FailureAnalyst",
+            "pattern": "SignalExtractor",
+            "input": "component_metrics",
+            "output": "performance_analysis",
+            "success_criteria": {
+                "pattern_effectiveness": 0.95,
+                "clarity_score": 0.9
+            },
+            "ux_rules": {
+                "confirm_context": true,
+                "metrics_required": true,
+                "error_prefix": "⚠️",
+                "success_prefix": "✅"
+            }
+        },
+        {
+            "agent": "MemoryStrategist",
+            "pattern": "RiskLens",
+            "input": "performance_analysis",
+            "output": "memory_analysis",
+            "success_criteria": {
+                "context_recall": 0.95,
+                "trace_integrity": 0.9
+            },
+            "ux_rules": {
+                "full_sentences": true,
+                "metrics_required": true,
+                "error_prefix": "⚠️",
+                "success_prefix": "✅"
+            }
+        },
+        {
+            "agent": "DesignTechnologist",
+            "pattern": "ReductionistPrompt",
+            "input": "memory_analysis",
+            "output": "optimization_suggestions",
+            "success_criteria": {
+                "buildability_score": 0.95,
+                "token_fidelity": 0.9
+            },
+            "ux_rules": {
+                "full_sentences": true,
+                "metrics_required": true,
+                "error_prefix": "⚠️",
+                "success_prefix": "✅"
+            }
+        },
+        {
+            "agent": "ComponentLibrarian",
+            "pattern": "StyleTransformer",
+            "input": "optimization_suggestions",
+            "output": "component_insights",
+            "success_criteria": {
+                "token_fidelity": 0.95,
+                "pattern_effectiveness": 0.9
+            },
+            "ux_rules": {
+                "full_sentences": true,
+                "metrics_required": true,
+                "error_prefix": "⚠️",
+                "success_prefix": "✅"
+            }
+        },
+        {
+            "agent": "VPOfDesign",
+            "pattern": "PatternCritiqueThenRewrite",
+            "input": "component_insights",
+            "output": "design_recommendations",
+            "success_criteria": {
+                "clarity_score": 0.95,
+                "narrative_cohesion": 0.9
+            },
+            "ux_rules": {
+                "slt_ready": true,
+                "full_sentences": true,
+                "metrics_required": true,
+                "error_prefix": "⚠️",
+                "success_prefix": "✅"
+            }
+        },
+        {
+            "agent": "VPOfProduct",
+            "pattern": "RiskLens",
+            "input": "design_recommendations",
+            "output": "final_analytics",
+            "success_criteria": {
+                "actionability_score": 0.95,
+                "technical_feasibility": 0.9
+            },
+            "ux_rules": {
+                "slt_ready": true,
+                "full_sentences": true,
+                "metrics_required": true,
+                "error_prefix": "⚠️",
+                "success_prefix": "✅"
+            }
+        }
+    ],
+    "success_criteria": {
+        "pattern_effectiveness": 0.95,
+        "buildability_score": 0.95,
+        "token_fidelity": 0.95,
+        "clarity_score": 0.95,
+        "technical_feasibility": 0.9
+    },
+    "max_iterations": 3,
+    "output_format": {
+        "metrics": "json",
+        "insights": "mdx",
+        "visualizations": "mermaid"
+    },
+    "analytics_requirements": {
+        "metrics_collection": {
+            "performance": {
+                "render_time": true,
+                "time_to_interactive": true,
+                "fps": true,
+                "layout_shifts": true
+            },
+            "memory": {
+                "heap_size": true,
+                "garbage_collection": true,
+                "memory_leaks": true,
+                "dom_nodes": true
+            },
+            "network": {
+                "request_count": true,
+                "data_transfer": true,
+                "cache_hits": true,
+                "latency": true
+            },
+            "errors": {
+                "runtime_errors": true,
+                "type_errors": true,
+                "boundary_catches": true,
+                "unhandled_rejections": true
+            }
+        },
+        "monitoring": {
+            "real_time": {
+                "performance_tracking": true,
+                "error_tracking": true,
+                "usage_tracking": true,
+                "health_checks": true
+            },
+            "alerts": {
+                "threshold_alerts": true,
+                "trend_alerts": true,
+                "anomaly_detection": true,
+                "error_spikes": true
+            },
+            "logging": {
+                "error_logs": true,
+                "performance_logs": true,
+                "usage_logs": true,
+                "audit_logs": true
+            }
+        },
+        "analysis": {
+            "patterns": {
+                "usage_patterns": true,
+                "error_patterns": true,
+                "performance_patterns": true,
+                "interaction_patterns": true
+            },
+            "trends": {
+                "performance_trends": true,
+                "error_trends": true,
+                "usage_trends": true,
+                "health_trends": true
+            },
+            "insights": {
+                "optimization_opportunities": true,
+                "risk_factors": true,
+                "user_behavior": true,
+                "component_health": true
+            }
+        },
+        "visualization": {
+            "dashboards": {
+                "performance_dashboard": true,
+                "error_dashboard": true,
+                "usage_dashboard": true,
+                "health_dashboard": true
+            },
+            "reports": {
+                "daily_reports": true,
+                "weekly_reports": true,
+                "monthly_reports": true,
+                "custom_reports": true
+            },
+            "alerts": {
+                "email_alerts": true,
+                "slack_alerts": true,
+                "dashboard_alerts": true,
+                "custom_alerts": true
+            }
+        }
+    },
+    "ux_requirements": {
+        "no_em_dashes": true,
+        "prefer_full_sentences": true,
+        "bullet_points_only_when_needed": true,
+        "confirm_context_if_confident": true,
+        "ask_clarifying_questions_if_uncertain": true,
+        "suppress_hallucination_on_low_confidence": true
+    },
+    "metrics_display": {
+        "per_agent": true,
+        "include": [
+            "clarity_score",
+            "confidence_score",
+            "pattern_effectiveness",
+            "buildability_score",
+            "token_fidelity",
+            "technical_feasibility",
+            "context_recall",
+            "trace_integrity"
+        ]
+    },
+    "fallback_behavior": {
+        "threshold": 0.75,
+        "on_low_confidence": "Ask clarifying questions",
+        "log_failures": true
+    }
+}

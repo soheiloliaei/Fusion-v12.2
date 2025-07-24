@@ -1,0 +1,95 @@
+{
+    "name": "quality_validation",
+    "version": "12.2.0",
+    "description": "Comprehensive quality validation chain",
+    "agents": [
+        {
+            "name": "EvaluatorAgent",
+            "role": "lead",
+            "quality_threshold": 0.95,
+            "required_metrics": [
+                "clarity_score",
+                "pattern_effectiveness",
+                "confidence_score",
+                "validation_depth"
+            ]
+        },
+        {
+            "name": "FailureAnalyst",
+            "role": "support",
+            "quality_threshold": 0.95,
+            "required_metrics": [
+                "analysis_depth",
+                "recovery_robustness",
+                "learning_quality",
+                "pattern_effectiveness"
+            ]
+        },
+        {
+            "name": "DesignMaster",
+            "role": "validator",
+            "quality_threshold": 0.95,
+            "required_metrics": [
+                "naming_consistency",
+                "hierarchy_clarity",
+                "system_cohesion",
+                "polish_level"
+            ]
+        }
+    ],
+    "chain_flow": [
+        {
+            "step": "quality_assessment",
+            "agent": "EvaluatorAgent",
+            "action": "assess_quality",
+            "quality_gates": {
+                "clarity_score": 0.95,
+                "confidence_score": 0.95
+            }
+        },
+        {
+            "step": "failure_analysis",
+            "agent": "FailureAnalyst",
+            "action": "analyze_failures",
+            "quality_gates": {
+                "analysis_depth": 0.95,
+                "recovery_robustness": 0.95
+            }
+        },
+        {
+            "step": "design_validation",
+            "agent": "DesignMaster",
+            "action": "validate_design",
+            "quality_gates": {
+                "system_cohesion": 0.95,
+                "polish_level": 0.95
+            }
+        }
+    ],
+    "quality_requirements": {
+        "minimum_overall_quality": 0.95,
+        "minimum_confidence": 0.95,
+        "required_validations": [
+            "clarity_assessment",
+            "failure_analysis",
+            "design_quality",
+            "system_cohesion"
+        ]
+    },
+    "output_requirements": {
+        "format": "validation_report",
+        "include_metrics": true,
+        "include_recommendations": true,
+        "include_improvements": true
+    },
+    "fallback_behavior": {
+        "on_quality_failure": "enhance_and_retry",
+        "max_retries": 3,
+        "minimum_acceptable_quality": 0.90
+    },
+    "metrics_display": {
+        "show_quality_scores": true,
+        "show_confidence": true,
+        "show_validations": true
+    }
+}

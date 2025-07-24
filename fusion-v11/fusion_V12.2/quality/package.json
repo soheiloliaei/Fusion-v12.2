@@ -1,0 +1,21 @@
+{
+    "name": "fusion-v12-quality",
+    "version": "12.2.0",
+    "description": "Fusion V12.2 Quality System",
+    "type": "module",
+    "scripts": {
+        "demo": "ts-node demo.ts",
+        "test": "jest",
+        "build": "tsc"
+    },
+    "dependencies": {
+        "typescript": "^4.9.5"
+    },
+    "devDependencies": {
+        "@types/jest": "^27.5.2",
+        "@types/node": "^16.11.7",
+        "jest": "^27.5.1",
+        "ts-jest": "^27.1.5",
+        "ts-node": "^10.4.0"
+    }
+}

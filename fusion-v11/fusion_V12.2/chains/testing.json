@@ -1,0 +1,175 @@
+{
+    "name": "testing",
+    "description": "Generates comprehensive test suite with coverage requirements",
+    "version": "12.2.0",
+    "execution_mode": "ship",
+    "chain": [
+        {
+            "agent": "ComponentLibrarian",
+            "pattern": "ReductionistPrompt",
+            "input": "component_library",
+            "output": "test_requirements",
+            "success_criteria": {
+                "clarity_score": 0.95,
+                "pattern_effectiveness": 0.9
+            },
+            "ux_rules": {
+                "confirm_context": true,
+                "metrics_required": true,
+                "error_prefix": "⚠️",
+                "success_prefix": "✅"
+            }
+        },
+        {
+            "agent": "PromptEngineer",
+            "pattern": "SignalExtractor",
+            "input": "test_requirements",
+            "output": "test_cases",
+            "success_criteria": {
+                "clarity_score": 0.95,
+                "pattern_effectiveness": 0.9
+            },
+            "ux_rules": {
+                "full_sentences": true,
+                "metrics_required": true,
+                "error_prefix": "⚠️",
+                "success_prefix": "✅"
+            }
+        },
+        {
+            "agent": "DesignTechnologist",
+            "pattern": "StyleTransformer",
+            "input": "test_cases",
+            "output": "test_implementation",
+            "success_criteria": {
+                "buildability_score": 0.95,
+                "token_fidelity": 0.9
+            },
+            "ux_rules": {
+                "full_sentences": true,
+                "metrics_required": true,
+                "error_prefix": "⚠️",
+                "success_prefix": "✅"
+            }
+        },
+        {
+            "agent": "FailureAnalyst",
+            "pattern": "RiskLens",
+            "input": "test_implementation",
+            "output": "test_coverage",
+            "success_criteria": {
+                "pattern_effectiveness": 0.95,
+                "clarity_score": 0.9
+            },
+            "ux_rules": {
+                "full_sentences": true,
+                "metrics_required": true,
+                "error_prefix": "⚠️",
+                "success_prefix": "✅"
+            }
+        },
+        {
+            "agent": "VPOfDesign",
+            "pattern": "PatternCritiqueThenRewrite",
+            "input": "test_coverage",
+            "output": "test_documentation",
+            "success_criteria": {
+                "clarity_score": 0.95,
+                "narrative_cohesion": 0.9
+            },
+            "ux_rules": {
+                "slt_ready": true,
+                "full_sentences": true,
+                "metrics_required": true,
+                "error_prefix": "⚠️",
+                "success_prefix": "✅"
+            }
+        },
+        {
+            "agent": "VPOfProduct",
+            "pattern": "RiskLens",
+            "input": "test_documentation",
+            "output": "final_test_suite",
+            "success_criteria": {
+                "actionability_score": 0.95,
+                "technical_feasibility": 0.9
+            },
+            "ux_rules": {
+                "slt_ready": true,
+                "full_sentences": true,
+                "metrics_required": true,
+                "error_prefix": "⚠️",
+                "success_prefix": "✅"
+            }
+        }
+    ],
+    "success_criteria": {
+        "clarity_score": 0.95,
+        "pattern_effectiveness": 0.9,
+        "buildability_score": 0.95,
+        "coverage_score": 0.9,
+        "technical_feasibility": 0.9
+    },
+    "max_iterations": 3,
+    "output_format": {
+        "tests": "typescript",
+        "coverage": "json",
+        "documentation": "mdx"
+    },
+    "testing_requirements": {
+        "coverage_thresholds": {
+            "statements": 90,
+            "branches": 85,
+            "functions": 90,
+            "lines": 90
+        },
+        "test_types": [
+            "unit",
+            "integration",
+            "e2e",
+            "visual_regression",
+            "accessibility",
+            "performance"
+        ],
+        "test_frameworks": {
+            "unit": "jest",
+            "integration": "testing-library",
+            "e2e": "cypress",
+            "visual": "chromatic",
+            "a11y": "axe-core",
+            "performance": "lighthouse"
+        },
+        "test_categories": [
+            "rendering",
+            "interaction",
+            "state_management",
+            "accessibility",
+            "responsive",
+            "error_handling"
+        ]
+    },
+    "ux_requirements": {
+        "no_em_dashes": true,
+        "prefer_full_sentences": true,
+        "bullet_points_only_when_needed": true,
+        "confirm_context_if_confident": true,
+        "ask_clarifying_questions_if_uncertain": true,
+        "suppress_hallucination_on_low_confidence": true
+    },
+    "metrics_display": {
+        "per_agent": true,
+        "include": [
+            "clarity_score",
+            "confidence_score",
+            "pattern_effectiveness",
+            "buildability_score",
+            "coverage_score",
+            "technical_feasibility"
+        ]
+    },
+    "fallback_behavior": {
+        "threshold": 0.75,
+        "on_low_confidence": "Ask clarifying questions",
+        "log_failures": true
+    }
+}

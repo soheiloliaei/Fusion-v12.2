@@ -1,0 +1,185 @@
+{
+    "name": "performance",
+    "description": "Optimizes component performance with comprehensive monitoring",
+    "version": "12.2.0",
+    "execution_mode": "ship",
+    "chain": [
+        {
+            "agent": "FailureAnalyst",
+            "pattern": "RiskLens",
+            "input": "component",
+            "output": "performance_analysis",
+            "success_criteria": {
+                "pattern_effectiveness": 0.95,
+                "clarity_score": 0.9
+            },
+            "ux_rules": {
+                "confirm_context": true,
+                "metrics_required": true,
+                "error_prefix": "⚠️",
+                "success_prefix": "✅"
+            }
+        },
+        {
+            "agent": "DesignTechnologist",
+            "pattern": "ReductionistPrompt",
+            "input": "performance_analysis",
+            "output": "optimization_plan",
+            "success_criteria": {
+                "buildability_score": 0.95,
+                "token_fidelity": 0.9
+            },
+            "ux_rules": {
+                "full_sentences": true,
+                "metrics_required": true,
+                "error_prefix": "⚠️",
+                "success_prefix": "✅"
+            }
+        },
+        {
+            "agent": "MemoryStrategist",
+            "pattern": "SignalExtractor",
+            "input": "optimization_plan",
+            "output": "memory_optimizations",
+            "success_criteria": {
+                "context_recall": 0.95,
+                "trace_integrity": 0.9
+            },
+            "ux_rules": {
+                "full_sentences": true,
+                "metrics_required": true,
+                "error_prefix": "⚠️",
+                "success_prefix": "✅"
+            }
+        },
+        {
+            "agent": "ComponentLibrarian",
+            "pattern": "StyleTransformer",
+            "input": "memory_optimizations",
+            "output": "optimized_component",
+            "success_criteria": {
+                "token_fidelity": 0.95,
+                "pattern_effectiveness": 0.9
+            },
+            "ux_rules": {
+                "full_sentences": true,
+                "metrics_required": true,
+                "error_prefix": "⚠️",
+                "success_prefix": "✅"
+            }
+        },
+        {
+            "agent": "VPOfDesign",
+            "pattern": "PatternCritiqueThenRewrite",
+            "input": "optimized_component",
+            "output": "design_review",
+            "success_criteria": {
+                "clarity_score": 0.95,
+                "narrative_cohesion": 0.9
+            },
+            "ux_rules": {
+                "slt_ready": true,
+                "full_sentences": true,
+                "metrics_required": true,
+                "error_prefix": "⚠️",
+                "success_prefix": "✅"
+            }
+        },
+        {
+            "agent": "VPOfProduct",
+            "pattern": "RiskLens",
+            "input": "design_review",
+            "output": "final_optimization",
+            "success_criteria": {
+                "actionability_score": 0.95,
+                "technical_feasibility": 0.9
+            },
+            "ux_rules": {
+                "slt_ready": true,
+                "full_sentences": true,
+                "metrics_required": true,
+                "error_prefix": "⚠️",
+                "success_prefix": "✅"
+            }
+        }
+    ],
+    "success_criteria": {
+        "pattern_effectiveness": 0.95,
+        "buildability_score": 0.95,
+        "token_fidelity": 0.95,
+        "clarity_score": 0.95,
+        "technical_feasibility": 0.9
+    },
+    "max_iterations": 3,
+    "output_format": {
+        "component": "typescript",
+        "metrics": "json",
+        "documentation": "mdx"
+    },
+    "performance_requirements": {
+        "metrics": {
+            "fps": {
+                "target": 60,
+                "minimum": 30
+            },
+            "memory": {
+                "heap_size": "< 50MB",
+                "gc_frequency": "< 1/min"
+            },
+            "load_time": {
+                "initial": "< 100ms",
+                "subsequent": "< 50ms"
+            },
+            "bundle_size": {
+                "initial": "< 100KB",
+                "chunked": "< 20KB"
+            }
+        },
+        "optimization_types": [
+            "memoization",
+            "code_splitting",
+            "tree_shaking",
+            "virtualization",
+            "lazy_loading",
+            "worker_offloading"
+        ],
+        "monitoring": {
+            "metrics_collection": true,
+            "performance_logging": true,
+            "error_tracking": true,
+            "usage_analytics": true
+        },
+        "testing": {
+            "load_testing": true,
+            "stress_testing": true,
+            "memory_profiling": true,
+            "cpu_profiling": true
+        }
+    },
+    "ux_requirements": {
+        "no_em_dashes": true,
+        "prefer_full_sentences": true,
+        "bullet_points_only_when_needed": true,
+        "confirm_context_if_confident": true,
+        "ask_clarifying_questions_if_uncertain": true,
+        "suppress_hallucination_on_low_confidence": true
+    },
+    "metrics_display": {
+        "per_agent": true,
+        "include": [
+            "clarity_score",
+            "confidence_score",
+            "pattern_effectiveness",
+            "buildability_score",
+            "token_fidelity",
+            "technical_feasibility",
+            "context_recall",
+            "trace_integrity"
+        ]
+    },
+    "fallback_behavior": {
+        "threshold": 0.75,
+        "on_low_confidence": "Ask clarifying questions",
+        "log_failures": true
+    }
+}

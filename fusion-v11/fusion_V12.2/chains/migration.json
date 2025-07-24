@@ -1,0 +1,172 @@
+{
+    "name": "migration",
+    "description": "Migrates legacy components to new design system with full compatibility",
+    "version": "12.2.0",
+    "execution_mode": "ship",
+    "chain": [
+        {
+            "agent": "UXArcheologist",
+            "pattern": "SignalExtractor",
+            "input": "legacy_component",
+            "output": "component_analysis",
+            "success_criteria": {
+                "pattern_effectiveness": 0.95,
+                "context_depth": 0.9
+            },
+            "ux_rules": {
+                "confirm_context": true,
+                "metrics_required": true,
+                "error_prefix": "⚠️",
+                "success_prefix": "✅"
+            }
+        },
+        {
+            "agent": "ComponentLibrarian",
+            "pattern": "ReductionistPrompt",
+            "input": "component_analysis",
+            "output": "token_mapping",
+            "success_criteria": {
+                "token_fidelity": 0.95,
+                "pattern_effectiveness": 0.9
+            },
+            "ux_rules": {
+                "full_sentences": true,
+                "metrics_required": true,
+                "error_prefix": "⚠️",
+                "success_prefix": "✅"
+            }
+        },
+        {
+            "agent": "DesignTechnologist",
+            "pattern": "StyleTransformer",
+            "input": "token_mapping",
+            "output": "migrated_component",
+            "success_criteria": {
+                "buildability_score": 0.95,
+                "token_fidelity": 0.9
+            },
+            "ux_rules": {
+                "full_sentences": true,
+                "metrics_required": true,
+                "error_prefix": "⚠️",
+                "success_prefix": "✅"
+            }
+        },
+        {
+            "agent": "FailureAnalyst",
+            "pattern": "RiskLens",
+            "input": "migrated_component",
+            "output": "migration_risks",
+            "success_criteria": {
+                "pattern_effectiveness": 0.95,
+                "clarity_score": 0.9
+            },
+            "ux_rules": {
+                "full_sentences": true,
+                "metrics_required": true,
+                "error_prefix": "⚠️",
+                "success_prefix": "✅"
+            }
+        },
+        {
+            "agent": "VPOfDesign",
+            "pattern": "PatternCritiqueThenRewrite",
+            "input": "migration_risks",
+            "output": "design_review",
+            "success_criteria": {
+                "clarity_score": 0.95,
+                "narrative_cohesion": 0.9
+            },
+            "ux_rules": {
+                "slt_ready": true,
+                "full_sentences": true,
+                "metrics_required": true,
+                "error_prefix": "⚠️",
+                "success_prefix": "✅"
+            }
+        },
+        {
+            "agent": "VPOfProduct",
+            "pattern": "RiskLens",
+            "input": "design_review",
+            "output": "final_migration",
+            "success_criteria": {
+                "actionability_score": 0.95,
+                "technical_feasibility": 0.9
+            },
+            "ux_rules": {
+                "slt_ready": true,
+                "full_sentences": true,
+                "metrics_required": true,
+                "error_prefix": "⚠️",
+                "success_prefix": "✅"
+            }
+        }
+    ],
+    "success_criteria": {
+        "pattern_effectiveness": 0.95,
+        "token_fidelity": 0.95,
+        "buildability_score": 0.95,
+        "clarity_score": 0.95,
+        "technical_feasibility": 0.9
+    },
+    "max_iterations": 3,
+    "output_format": {
+        "component": "typescript",
+        "styles": "tailwind",
+        "documentation": "mdx"
+    },
+    "migration_requirements": {
+        "compatibility": {
+            "props_mapping": true,
+            "event_handlers": true,
+            "style_conversion": true,
+            "type_definitions": true
+        },
+        "analysis_aspects": [
+            "component_structure",
+            "prop_types",
+            "event_handling",
+            "state_management",
+            "styling_approach",
+            "accessibility"
+        ],
+        "token_mapping": {
+            "colors": true,
+            "typography": true,
+            "spacing": true,
+            "breakpoints": true
+        },
+        "testing_requirements": {
+            "behavior_parity": true,
+            "visual_regression": true,
+            "accessibility": true,
+            "performance": true
+        }
+    },
+    "ux_requirements": {
+        "no_em_dashes": true,
+        "prefer_full_sentences": true,
+        "bullet_points_only_when_needed": true,
+        "confirm_context_if_confident": true,
+        "ask_clarifying_questions_if_uncertain": true,
+        "suppress_hallucination_on_low_confidence": true
+    },
+    "metrics_display": {
+        "per_agent": true,
+        "include": [
+            "clarity_score",
+            "confidence_score",
+            "pattern_effectiveness",
+            "buildability_score",
+            "token_fidelity",
+            "technical_feasibility",
+            "context_depth"
+        ]
+    },
+    "fallback_behavior": {
+        "threshold": 0.75,
+        "on_low_confidence": "Ask clarifying questions",
+        "log_failures": true
+    }
+}

@@ -1,0 +1,199 @@
+{
+    "name": "error_recovery",
+    "description": "Handles error recovery and self-healing for components and chains",
+    "version": "12.2.0",
+    "execution_mode": "ship",
+    "chain": [
+        {
+            "agent": "FailureAnalyst",
+            "pattern": "RiskLens",
+            "input": "error_context",
+            "output": "error_analysis",
+            "success_criteria": {
+                "pattern_effectiveness": 0.95,
+                "clarity_score": 0.9
+            },
+            "ux_rules": {
+                "confirm_context": true,
+                "metrics_required": true,
+                "error_prefix": "⚠️",
+                "success_prefix": "✅"
+            }
+        },
+        {
+            "agent": "MemoryStrategist",
+            "pattern": "SignalExtractor",
+            "input": "error_analysis",
+            "output": "recovery_strategy",
+            "success_criteria": {
+                "context_recall": 0.95,
+                "trace_integrity": 0.9
+            },
+            "ux_rules": {
+                "full_sentences": true,
+                "metrics_required": true,
+                "error_prefix": "⚠️",
+                "success_prefix": "✅"
+            }
+        },
+        {
+            "agent": "DesignTechnologist",
+            "pattern": "ReductionistPrompt",
+            "input": "recovery_strategy",
+            "output": "recovery_implementation",
+            "success_criteria": {
+                "buildability_score": 0.95,
+                "token_fidelity": 0.9
+            },
+            "ux_rules": {
+                "full_sentences": true,
+                "metrics_required": true,
+                "error_prefix": "⚠️",
+                "success_prefix": "✅"
+            }
+        },
+        {
+            "agent": "ComponentLibrarian",
+            "pattern": "StyleTransformer",
+            "input": "recovery_implementation",
+            "output": "recovered_component",
+            "success_criteria": {
+                "token_fidelity": 0.95,
+                "pattern_effectiveness": 0.9
+            },
+            "ux_rules": {
+                "full_sentences": true,
+                "metrics_required": true,
+                "error_prefix": "⚠️",
+                "success_prefix": "✅"
+            }
+        },
+        {
+            "agent": "VPOfDesign",
+            "pattern": "PatternCritiqueThenRewrite",
+            "input": "recovered_component",
+            "output": "recovery_validation",
+            "success_criteria": {
+                "clarity_score": 0.95,
+                "narrative_cohesion": 0.9
+            },
+            "ux_rules": {
+                "slt_ready": true,
+                "full_sentences": true,
+                "metrics_required": true,
+                "error_prefix": "⚠️",
+                "success_prefix": "✅"
+            }
+        },
+        {
+            "agent": "VPOfProduct",
+            "pattern": "RiskLens",
+            "input": "recovery_validation",
+            "output": "final_recovery",
+            "success_criteria": {
+                "actionability_score": 0.95,
+                "technical_feasibility": 0.9
+            },
+            "ux_rules": {
+                "slt_ready": true,
+                "full_sentences": true,
+                "metrics_required": true,
+                "error_prefix": "⚠️",
+                "success_prefix": "✅"
+            }
+        }
+    ],
+    "success_criteria": {
+        "pattern_effectiveness": 0.95,
+        "buildability_score": 0.95,
+        "token_fidelity": 0.95,
+        "clarity_score": 0.95,
+        "technical_feasibility": 0.9
+    },
+    "max_iterations": 3,
+    "output_format": {
+        "component": "typescript",
+        "recovery": "json",
+        "documentation": "mdx"
+    },
+    "error_recovery_requirements": {
+        "error_types": {
+            "runtime": {
+                "prop_type_mismatch": true,
+                "state_corruption": true,
+                "memory_leak": true,
+                "infinite_loop": true
+            },
+            "build": {
+                "type_error": true,
+                "dependency_conflict": true,
+                "bundle_size": true,
+                "compilation_error": true
+            },
+            "design": {
+                "accessibility": true,
+                "style_conflict": true,
+                "layout_break": true,
+                "responsive_issue": true
+            },
+            "performance": {
+                "render_time": true,
+                "memory_usage": true,
+                "cpu_usage": true,
+                "network_calls": true
+            }
+        },
+        "recovery_strategies": {
+            "automatic": {
+                "prop_adaptation": true,
+                "state_reset": true,
+                "memory_cleanup": true,
+                "style_resolution": true
+            },
+            "guided": {
+                "error_explanation": true,
+                "fix_suggestions": true,
+                "code_examples": true,
+                "documentation_links": true
+            },
+            "preventive": {
+                "type_checking": true,
+                "performance_monitoring": true,
+                "memory_tracking": true,
+                "error_boundary": true
+            }
+        },
+        "validation": {
+            "functional_tests": true,
+            "visual_regression": true,
+            "accessibility_check": true,
+            "performance_benchmark": true
+        }
+    },
+    "ux_requirements": {
+        "no_em_dashes": true,
+        "prefer_full_sentences": true,
+        "bullet_points_only_when_needed": true,
+        "confirm_context_if_confident": true,
+        "ask_clarifying_questions_if_uncertain": true,
+        "suppress_hallucination_on_low_confidence": true
+    },
+    "metrics_display": {
+        "per_agent": true,
+        "include": [
+            "clarity_score",
+            "confidence_score",
+            "pattern_effectiveness",
+            "buildability_score",
+            "token_fidelity",
+            "technical_feasibility",
+            "context_recall",
+            "trace_integrity"
+        ]
+    },
+    "fallback_behavior": {
+        "threshold": 0.75,
+        "on_low_confidence": "Ask clarifying questions",
+        "log_failures": true
+    }
+}

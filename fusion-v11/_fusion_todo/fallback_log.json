@@ -1,0 +1,52 @@
+{
+    "fallbacks": [
+        {
+            "timestamp": "2025-07-21T01:04:17.294649",
+            "agent": "StrategyPilot",
+            "original_pattern": "StepwiseInsightSynthesis",
+            "fallback_pattern": "RoleDirective",
+            "metrics": {
+                "clarity_score": 1.0,
+                "innovation_score": 1.0,
+                "pattern_effectiveness": 0.5,
+                "confidence_score": 0.6,
+                "fallback_reason": "Clarity: Too many complex words; Innovation: No innovation markers found; Pattern: Unknown pattern"
+            },
+            "reason": "Failed metrics: pattern_effectiveness",
+            "mode": "simulate",
+            "threshold": 0.6
+        },
+        {
+            "timestamp": "2025-07-21T01:04:17.295785",
+            "agent": "NarrativeArchitect",
+            "original_pattern": "RoleDirective",
+            "fallback_pattern": "PatternCritiqueThenRewrite",
+            "metrics": {
+                "clarity_score": 1.0,
+                "innovation_score": 1.0,
+                "pattern_effectiveness": 0.5,
+                "confidence_score": 0.6,
+                "fallback_reason": "Clarity: Too many complex words; Innovation: No innovation markers found; Pattern: Unknown pattern"
+            },
+            "reason": "Failed metrics: pattern_effectiveness",
+            "mode": "simulate",
+            "threshold": 0.6
+        },
+        {
+            "timestamp": "2025-07-21T01:04:17.296828",
+            "agent": "EvaluatorAgent",
+            "original_pattern": "PatternCritiqueThenRewrite",
+            "fallback_pattern": "StepwiseInsightSynthesis",
+            "metrics": {
+                "clarity_score": 1.0,
+                "innovation_score": 1.0,
+                "pattern_effectiveness": 0.5,
+                "confidence_score": 0.6,
+                "fallback_reason": "Clarity: Too many complex words; Innovation: No innovation markers found; Pattern: Unknown pattern"
+            },
+            "reason": "Failed metrics: pattern_effectiveness",
+            "mode": "simulate",
+            "threshold": 0.6
+        }
+    ]
+}

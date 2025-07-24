@@ -1,0 +1,255 @@
+{
+    "name": "deployment",
+    "description": "Multi-platform deployment chain with comprehensive validation",
+    "version": "12.2.0",
+    "execution_mode": "ship",
+    "chain": [
+        {
+            "agent": "ComponentLibrarian",
+            "pattern": "ReductionistPrompt",
+            "input": "component_library",
+            "output": "deployment_requirements",
+            "success_criteria": {
+                "token_fidelity": 0.95,
+                "pattern_effectiveness": 0.9
+            },
+            "ux_rules": {
+                "confirm_context": true,
+                "metrics_required": true,
+                "error_prefix": "⚠️",
+                "success_prefix": "✅"
+            }
+        },
+        {
+            "agent": "DesignTechnologist",
+            "pattern": "StyleTransformer",
+            "input": "deployment_requirements",
+            "output": "platform_adaptations",
+            "success_criteria": {
+                "buildability_score": 0.95,
+                "token_fidelity": 0.9
+            },
+            "ux_rules": {
+                "full_sentences": true,
+                "metrics_required": true,
+                "error_prefix": "⚠️",
+                "success_prefix": "✅"
+            }
+        },
+        {
+            "agent": "FailureAnalyst",
+            "pattern": "RiskLens",
+            "input": "platform_adaptations",
+            "output": "deployment_risks",
+            "success_criteria": {
+                "pattern_effectiveness": 0.95,
+                "clarity_score": 0.9
+            },
+            "ux_rules": {
+                "full_sentences": true,
+                "metrics_required": true,
+                "error_prefix": "⚠️",
+                "success_prefix": "✅"
+            }
+        },
+        {
+            "agent": "MemoryStrategist",
+            "pattern": "SignalExtractor",
+            "input": "deployment_risks",
+            "output": "optimization_strategy",
+            "success_criteria": {
+                "context_recall": 0.95,
+                "trace_integrity": 0.9
+            },
+            "ux_rules": {
+                "full_sentences": true,
+                "metrics_required": true,
+                "error_prefix": "⚠️",
+                "success_prefix": "✅"
+            }
+        },
+        {
+            "agent": "VPOfDesign",
+            "pattern": "PatternCritiqueThenRewrite",
+            "input": "optimization_strategy",
+            "output": "deployment_validation",
+            "success_criteria": {
+                "clarity_score": 0.95,
+                "narrative_cohesion": 0.9
+            },
+            "ux_rules": {
+                "slt_ready": true,
+                "full_sentences": true,
+                "metrics_required": true,
+                "error_prefix": "⚠️",
+                "success_prefix": "✅"
+            }
+        },
+        {
+            "agent": "VPOfProduct",
+            "pattern": "RiskLens",
+            "input": "deployment_validation",
+            "output": "final_deployment",
+            "success_criteria": {
+                "actionability_score": 0.95,
+                "technical_feasibility": 0.9
+            },
+            "ux_rules": {
+                "slt_ready": true,
+                "full_sentences": true,
+                "metrics_required": true,
+                "error_prefix": "⚠️",
+                "success_prefix": "✅"
+            }
+        }
+    ],
+    "success_criteria": {
+        "pattern_effectiveness": 0.95,
+        "buildability_score": 0.95,
+        "token_fidelity": 0.95,
+        "clarity_score": 0.95,
+        "technical_feasibility": 0.9
+    },
+    "max_iterations": 3,
+    "output_format": {
+        "deployment": "json",
+        "documentation": "mdx",
+        "scripts": "shell"
+    },
+    "deployment_requirements": {
+        "platforms": {
+            "web": {
+                "browsers": {
+                    "chrome": true,
+                    "firefox": true,
+                    "safari": true,
+                    "edge": true
+                },
+                "frameworks": {
+                    "react": true,
+                    "vue": true,
+                    "angular": true,
+                    "svelte": true
+                },
+                "build_tools": {
+                    "webpack": true,
+                    "vite": true,
+                    "rollup": true,
+                    "esbuild": true
+                }
+            },
+            "mobile": {
+                "ios": {
+                    "react_native": true,
+                    "swift_ui": true,
+                    "flutter": true
+                },
+                "android": {
+                    "react_native": true,
+                    "jetpack_compose": true,
+                    "flutter": true
+                }
+            },
+            "desktop": {
+                "electron": true,
+                "tauri": true,
+                "flutter": true
+            }
+        },
+        "build_process": {
+            "compilation": {
+                "typescript": true,
+                "babel": true,
+                "swc": true
+            },
+            "bundling": {
+                "code_splitting": true,
+                "tree_shaking": true,
+                "minification": true,
+                "compression": true
+            },
+            "optimization": {
+                "lazy_loading": true,
+                "prefetching": true,
+                "caching": true,
+                "precompilation": true
+            }
+        },
+        "testing": {
+            "unit_tests": {
+                "jest": true,
+                "vitest": true,
+                "mocha": true
+            },
+            "integration_tests": {
+                "cypress": true,
+                "playwright": true,
+                "selenium": true
+            },
+            "e2e_tests": {
+                "cypress": true,
+                "playwright": true,
+                "puppeteer": true
+            }
+        },
+        "validation": {
+            "linting": {
+                "eslint": true,
+                "prettier": true,
+                "stylelint": true
+            },
+            "type_checking": {
+                "typescript": true,
+                "flow": true
+            },
+            "security": {
+                "dependency_audit": true,
+                "code_scanning": true,
+                "vulnerability_check": true
+            }
+        },
+        "deployment": {
+            "environments": {
+                "development": true,
+                "staging": true,
+                "production": true
+            },
+            "infrastructure": {
+                "containers": true,
+                "serverless": true,
+                "edge": true
+            },
+            "monitoring": {
+                "logging": true,
+                "metrics": true,
+                "alerts": true
+            }
+        }
+    },
+    "ux_requirements": {
+        "no_em_dashes": true,
+        "prefer_full_sentences": true,
+        "bullet_points_only_when_needed": true,
+        "confirm_context_if_confident": true,
+        "ask_clarifying_questions_if_uncertain": true,
+        "suppress_hallucination_on_low_confidence": true
+    },
+    "metrics_display": {
+        "per_agent": true,
+        "include": [
+            "clarity_score",
+            "confidence_score",
+            "pattern_effectiveness",
+            "buildability_score",
+            "token_fidelity",
+            "technical_feasibility",
+            "context_recall",
+            "trace_integrity"
+        ]
+    },
+    "fallback_behavior": {
+        "threshold": 0.75,
+        "on_low_confidence": "Ask clarifying questions",
+        "log_failures": true
+    }
+}

@@ -1,0 +1,108 @@
+{
+    "name": "figma_to_prototype",
+    "version": "12.2.0",
+    "description": "Quality-enhanced Figma to React/Tailwind prototype conversion",
+    "agents": [
+        {
+            "name": "DesignTechnologist",
+            "role": "lead",
+            "quality_threshold": 0.95,
+            "required_metrics": [
+                "technical_accuracy",
+                "component_reusability",
+                "accessibility_score",
+                "performance_score",
+                "build_readiness"
+            ]
+        },
+        {
+            "name": "ComponentLibrarian",
+            "role": "support",
+            "quality_threshold": 0.95,
+            "required_metrics": [
+                "component_consistency",
+                "token_mapping_accuracy",
+                "variant_coverage",
+                "prop_definition_clarity"
+            ]
+        },
+        {
+            "name": "EvaluatorAgent",
+            "role": "validator",
+            "quality_threshold": 0.95,
+            "required_metrics": [
+                "clarity_score",
+                "technical_feasibility",
+                "pattern_effectiveness",
+                "slt_quality"
+            ]
+        }
+    ],
+    "chain_flow": [
+        {
+            "step": "design_analysis",
+            "agent": "DesignTechnologist",
+            "action": "analyze_design",
+            "quality_gates": {
+                "technical_accuracy": 0.95,
+                "build_readiness": 0.95
+            }
+        },
+        {
+            "step": "component_mapping",
+            "agent": "ComponentLibrarian",
+            "action": "map_components",
+            "quality_gates": {
+                "component_consistency": 0.95,
+                "token_mapping_accuracy": 0.95
+            }
+        },
+        {
+            "step": "code_generation",
+            "agent": "DesignTechnologist",
+            "action": "generate_code",
+            "quality_gates": {
+                "component_reusability": 0.95,
+                "accessibility_score": 0.95,
+                "performance_score": 0.95
+            }
+        },
+        {
+            "step": "quality_validation",
+            "agent": "EvaluatorAgent",
+            "action": "validate_output",
+            "quality_gates": {
+                "clarity_score": 0.95,
+                "technical_feasibility": 0.95,
+                "pattern_effectiveness": 0.95,
+                "slt_quality": 0.95
+            }
+        }
+    ],
+    "quality_requirements": {
+        "minimum_overall_quality": 0.95,
+        "minimum_confidence": 0.95,
+        "required_validations": [
+            "technical_accuracy",
+            "accessibility",
+            "performance",
+            "build_readiness"
+        ]
+    },
+    "output_requirements": {
+        "format": "react_tailwind",
+        "include_documentation": true,
+        "include_tests": true,
+        "include_storybook": true
+    },
+    "fallback_behavior": {
+        "on_quality_failure": "enhance_and_retry",
+        "max_retries": 3,
+        "minimum_acceptable_quality": 0.90
+    },
+    "metrics_display": {
+        "show_quality_scores": true,
+        "show_confidence": true,
+        "show_validations": true
+    }
+}

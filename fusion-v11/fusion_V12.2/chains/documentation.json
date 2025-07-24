@@ -1,0 +1,170 @@
+{
+    "name": "documentation",
+    "description": "Generates SLT-ready documentation with comprehensive coverage",
+    "version": "12.2.0",
+    "execution_mode": "ship",
+    "chain": [
+        {
+            "agent": "ComponentLibrarian",
+            "pattern": "ReductionistPrompt",
+            "input": "component_library",
+            "output": "api_documentation",
+            "success_criteria": {
+                "clarity_score": 0.95,
+                "pattern_effectiveness": 0.9
+            },
+            "ux_rules": {
+                "confirm_context": true,
+                "metrics_required": true,
+                "error_prefix": "⚠️",
+                "success_prefix": "✅"
+            }
+        },
+        {
+            "agent": "PromptEngineer",
+            "pattern": "SignalExtractor",
+            "input": "api_documentation",
+            "output": "usage_examples",
+            "success_criteria": {
+                "clarity_score": 0.95,
+                "pattern_effectiveness": 0.9
+            },
+            "ux_rules": {
+                "full_sentences": true,
+                "metrics_required": true,
+                "error_prefix": "⚠️",
+                "success_prefix": "✅"
+            }
+        },
+        {
+            "agent": "ProductNavigator",
+            "pattern": "StepwiseInsightSynthesis",
+            "input": "usage_examples",
+            "output": "integration_guide",
+            "success_criteria": {
+                "actionability_score": 0.95,
+                "clarity_score": 0.9
+            },
+            "ux_rules": {
+                "full_sentences": true,
+                "metrics_required": true,
+                "error_prefix": "⚠️",
+                "success_prefix": "✅"
+            }
+        },
+        {
+            "agent": "DesignMaster",
+            "pattern": "StyleTransformer",
+            "input": "integration_guide",
+            "output": "visual_documentation",
+            "success_criteria": {
+                "clarity_score": 0.95,
+                "presentation_score": 0.95
+            },
+            "ux_rules": {
+                "slt_ready": true,
+                "full_sentences": true,
+                "metrics_required": true,
+                "error_prefix": "⚠️",
+                "success_prefix": "✅"
+            }
+        },
+        {
+            "agent": "VPOfDesign",
+            "pattern": "PatternCritiqueThenRewrite",
+            "input": "visual_documentation",
+            "output": "design_guidelines",
+            "success_criteria": {
+                "clarity_score": 0.95,
+                "narrative_cohesion": 0.95
+            },
+            "ux_rules": {
+                "slt_ready": true,
+                "full_sentences": true,
+                "metrics_required": true,
+                "error_prefix": "⚠️",
+                "success_prefix": "✅"
+            }
+        },
+        {
+            "agent": "VPOfProduct",
+            "pattern": "RiskLens",
+            "input": "design_guidelines",
+            "output": "final_documentation",
+            "success_criteria": {
+                "actionability_score": 0.95,
+                "technical_feasibility": 0.9
+            },
+            "ux_rules": {
+                "slt_ready": true,
+                "full_sentences": true,
+                "metrics_required": true,
+                "error_prefix": "⚠️",
+                "success_prefix": "✅"
+            }
+        }
+    ],
+    "success_criteria": {
+        "clarity_score": 0.95,
+        "actionability_score": 0.95,
+        "pattern_effectiveness": 0.9,
+        "presentation_score": 0.95,
+        "narrative_cohesion": 0.95
+    },
+    "max_iterations": 3,
+    "output_format": {
+        "api_docs": "typescript",
+        "examples": "mdx",
+        "guidelines": "mdx",
+        "diagrams": "mermaid"
+    },
+    "documentation_requirements": {
+        "sections": [
+            "overview",
+            "getting_started",
+            "api_reference",
+            "usage_examples",
+            "best_practices",
+            "integration_guide",
+            "troubleshooting",
+            "contribution_guide"
+        ],
+        "code_examples": [
+            "basic_usage",
+            "advanced_patterns",
+            "integration_examples",
+            "testing_examples"
+        ],
+        "visual_elements": [
+            "component_diagrams",
+            "flow_charts",
+            "decision_trees",
+            "architecture_diagrams"
+        ]
+    },
+    "ux_requirements": {
+        "no_em_dashes": true,
+        "prefer_full_sentences": true,
+        "bullet_points_only_when_needed": true,
+        "confirm_context_if_confident": true,
+        "ask_clarifying_questions_if_uncertain": true,
+        "suppress_hallucination_on_low_confidence": true
+    },
+    "metrics_display": {
+        "per_agent": true,
+        "include": [
+            "clarity_score",
+            "confidence_score",
+            "pattern_effectiveness",
+            "actionability_score",
+            "presentation_score",
+            "narrative_cohesion",
+            "technical_feasibility"
+        ]
+    },
+    "fallback_behavior": {
+        "threshold": 0.75,
+        "on_low_confidence": "Ask clarifying questions",
+        "log_failures": true
+    }
+}

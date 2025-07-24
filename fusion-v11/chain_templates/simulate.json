@@ -1,0 +1,23 @@
+{
+    "name": "simulate",
+    "description": "Exploration and testing chain",
+    "execution_mode": "simulate",
+    "chain": [
+        {
+            "agent": "StrategyPilot",
+            "pattern": "StepwiseInsightSynthesis"
+        },
+        {
+            "agent": "NarrativeArchitect",
+            "pattern": "RoleDirective"
+        },
+        {
+            "agent": "EvaluatorAgent",
+            "pattern": "PatternCritiqueThenRewrite"
+        }
+    ],
+    "success_criteria": {
+        "innovation_score": 0.8,
+        "clarity_score": 0.8
+    }
+}

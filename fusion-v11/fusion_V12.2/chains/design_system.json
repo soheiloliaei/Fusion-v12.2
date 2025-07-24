@@ -1,0 +1,170 @@
+{
+    "name": "design_system",
+    "description": "Generates comprehensive design system with components, tokens, and documentation",
+    "version": "12.2.0",
+    "execution_mode": "ship",
+    "chain": [
+        {
+            "agent": "ComponentLibrarian",
+            "pattern": "ReductionistPrompt",
+            "input": "design_tokens",
+            "output": "token_map",
+            "success_criteria": {
+                "token_fidelity": 0.95,
+                "pattern_effectiveness": 0.9
+            },
+            "ux_rules": {
+                "confirm_context": true,
+                "metrics_required": true,
+                "error_prefix": "⚠️",
+                "success_prefix": "✅"
+            }
+        },
+        {
+            "agent": "DesignTechnologist",
+            "pattern": "StyleTransformer",
+            "input": "token_map",
+            "output": "component_library",
+            "success_criteria": {
+                "buildability_score": 0.95,
+                "token_fidelity": 0.95
+            },
+            "ux_rules": {
+                "full_sentences": true,
+                "metrics_required": true,
+                "error_prefix": "⚠️",
+                "success_prefix": "✅"
+            }
+        },
+        {
+            "agent": "PromptEngineer",
+            "pattern": "PatternAmplifier",
+            "input": "component_library",
+            "output": "component_patterns",
+            "success_criteria": {
+                "clarity_score": 0.9,
+                "pattern_effectiveness": 0.9
+            },
+            "ux_rules": {
+                "full_sentences": true,
+                "metrics_required": true,
+                "error_prefix": "⚠️",
+                "success_prefix": "✅"
+            }
+        },
+        {
+            "agent": "ProductNavigator",
+            "pattern": "StepwiseInsightSynthesis",
+            "input": "component_patterns",
+            "output": "usage_guidelines",
+            "success_criteria": {
+                "innovation_score": 0.85,
+                "actionability_score": 0.9
+            },
+            "ux_rules": {
+                "full_sentences": true,
+                "metrics_required": true,
+                "error_prefix": "⚠️",
+                "success_prefix": "✅"
+            }
+        },
+        {
+            "agent": "DesignMaster",
+            "pattern": "StyleTransformer",
+            "input": "usage_guidelines",
+            "output": "design_documentation",
+            "success_criteria": {
+                "clarity_score": 0.95,
+                "presentation_score": 0.95
+            },
+            "ux_rules": {
+                "slt_ready": true,
+                "full_sentences": true,
+                "metrics_required": true,
+                "error_prefix": "⚠️",
+                "success_prefix": "✅"
+            }
+        },
+        {
+            "agent": "VPOfDesign",
+            "pattern": "PatternCritiqueThenRewrite",
+            "input": "design_documentation",
+            "output": "design_system",
+            "success_criteria": {
+                "clarity_score": 0.95,
+                "narrative_cohesion": 0.95
+            },
+            "ux_rules": {
+                "slt_ready": true,
+                "full_sentences": true,
+                "metrics_required": true,
+                "error_prefix": "⚠️",
+                "success_prefix": "✅"
+            }
+        }
+    ],
+    "success_criteria": {
+        "buildability_score": 0.95,
+        "clarity_score": 0.95,
+        "token_fidelity": 0.95,
+        "pattern_effectiveness": 0.9,
+        "presentation_score": 0.95
+    },
+    "max_iterations": 3,
+    "output_format": {
+        "tokens": "typescript",
+        "components": "react",
+        "styles": "tailwind",
+        "documentation": "mdx"
+    },
+    "design_system_requirements": {
+        "token_categories": [
+            "colors",
+            "typography",
+            "spacing",
+            "breakpoints",
+            "shadows",
+            "animations"
+        ],
+        "component_categories": [
+            "atoms",
+            "molecules",
+            "organisms",
+            "templates"
+        ],
+        "documentation_sections": [
+            "getting_started",
+            "design_principles",
+            "token_reference",
+            "component_library",
+            "pattern_library",
+            "contribution_guide"
+        ]
+    },
+    "ux_requirements": {
+        "no_em_dashes": true,
+        "prefer_full_sentences": true,
+        "bullet_points_only_when_needed": true,
+        "confirm_context_if_confident": true,
+        "ask_clarifying_questions_if_uncertain": true,
+        "suppress_hallucination_on_low_confidence": true
+    },
+    "metrics_display": {
+        "per_agent": true,
+        "include": [
+            "clarity_score",
+            "confidence_score",
+            "innovation_score",
+            "pattern_effectiveness",
+            "buildability_score",
+            "token_fidelity",
+            "presentation_score",
+            "narrative_cohesion"
+        ]
+    },
+    "fallback_behavior": {
+        "threshold": 0.75,
+        "on_low_confidence": "Ask clarifying questions",
+        "log_failures": true
+    }
+}

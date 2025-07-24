@@ -1,0 +1,12 @@
+# Core requirements for Fusion v11 (without hash verification)
+requests>=2.31.0
+fastapi>=0.100.0
+pydantic>=2.0.0
+rich>=13.0.0
+click>=8.1.0
+colorama>=0.4.6
+tqdm>=4.65.0
+jsonschema>=4.17.0
+pyyaml>=6.0.0
+python-dotenv>=1.0.0
+pathlib2>=2.3.0

@@ -1,0 +1,151 @@
+{
+    "name": "figma_to_prototype",
+    "description": "Extract tokens and components from Figma MCP and build a working Cursor-ready prototype",
+    "version": "12.2.0",
+    "execution_mode": "prototype",
+    "chain": [
+        {
+            "agent": "ComponentLibrarian",
+            "pattern": "ReductionistPrompt",
+            "input": "figma_mcp_json",
+            "output": "token_map",
+            "success_criteria": {
+                "token_fidelity": 0.9,
+                "pattern_effectiveness": 0.85
+            },
+            "ux_rules": {
+                "confirm_context": true,
+                "metrics_required": true,
+                "error_prefix": "⚠️",
+                "success_prefix": "✅"
+            }
+        },
+        {
+            "agent": "DesignTechnologist",
+            "pattern": "StyleTransformer",
+            "input": "token_map",
+            "output": "react_components",
+            "success_criteria": {
+                "buildability_score": 0.9,
+                "token_fidelity": 0.9
+            },
+            "ux_rules": {
+                "full_sentences": true,
+                "metrics_required": true,
+                "error_prefix": "⚠️",
+                "success_prefix": "✅"
+            }
+        },
+        {
+            "agent": "PromptEngineer",
+            "pattern": "PatternAmplifier",
+            "input": "react_components",
+            "output": "prompt_scaffold",
+            "success_criteria": {
+                "clarity_score": 0.9,
+                "pattern_effectiveness": 0.85
+            },
+            "ux_rules": {
+                "full_sentences": true,
+                "metrics_required": true,
+                "error_prefix": "⚠️",
+                "success_prefix": "✅"
+            }
+        },
+        {
+            "agent": "ProductNavigator",
+            "pattern": "StepwiseInsightSynthesis",
+            "input": "prompt_scaffold",
+            "output": "product_insights",
+            "success_criteria": {
+                "innovation_score": 0.85,
+                "actionability_score": 0.85
+            },
+            "ux_rules": {
+                "full_sentences": true,
+                "metrics_required": true,
+                "error_prefix": "⚠️",
+                "success_prefix": "✅"
+            }
+        },
+        {
+            "agent": "VPOfDesign",
+            "pattern": "StyleTransformer",
+            "input": "product_insights",
+            "output": "design_review",
+            "success_criteria": {
+                "clarity_score": 0.95,
+                "narrative_cohesion": 0.9
+            },
+            "ux_rules": {
+                "slt_ready": true,
+                "full_sentences": true,
+                "metrics_required": true,
+                "error_prefix": "⚠️",
+                "success_prefix": "✅"
+            }
+        },
+        {
+            "agent": "VPOfProduct",
+            "pattern": "RiskLens",
+            "input": "design_review",
+            "output": "final_prototype",
+            "success_criteria": {
+                "actionability_score": 0.9,
+                "technical_feasibility": 0.85
+            },
+            "ux_rules": {
+                "slt_ready": true,
+                "full_sentences": true,
+                "metrics_required": true,
+                "error_prefix": "⚠️",
+                "success_prefix": "✅"
+            }
+        }
+    ],
+    "success_criteria": {
+        "buildability_score": 0.9,
+        "clarity_score": 0.9,
+        "actionability_score": 0.85,
+        "token_fidelity": 0.9,
+        "pattern_effectiveness": 0.85,
+        "technical_feasibility": 0.85
+    },
+    "max_iterations": 3,
+    "output_format": {
+        "code": "typescript",
+        "styles": "tailwind",
+        "documentation": "markdown"
+    },
+    "mcp_integration": {
+        "enabled": true,
+        "extract_tokens": true,
+        "infer_variants": true
+    },
+    "ux_requirements": {
+        "no_em_dashes": true,
+        "prefer_full_sentences": true,
+        "bullet_points_only_when_needed": true,
+        "confirm_context_if_confident": true,
+        "ask_clarifying_questions_if_uncertain": true,
+        "suppress_hallucination_on_low_confidence": true
+    },
+    "metrics_display": {
+        "per_agent": true,
+        "include": [
+            "clarity_score",
+            "confidence_score",
+            "innovation_score",
+            "pattern_effectiveness",
+            "buildability_score",
+            "token_fidelity",
+            "technical_feasibility",
+            "actionability_score"
+        ]
+    },
+    "fallback_behavior": {
+        "threshold": 0.75,
+        "on_low_confidence": "Ask clarifying questions",
+        "log_failures": true
+    }
+}

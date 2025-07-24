@@ -1,0 +1,23 @@
+{
+    "name": "ship",
+    "description": "Production-ready output chain",
+    "execution_mode": "ship",
+    "chain": [
+        {
+            "agent": "StrategyPilot",
+            "pattern": "RiskLens"
+        },
+        {
+            "agent": "NarrativeArchitect",
+            "pattern": "StyleTransformer"
+        },
+        {
+            "agent": "EvaluatorAgent",
+            "pattern": "PatternCritiqueThenRewrite"
+        }
+    ],
+    "success_criteria": {
+        "clarity_score": 0.9,
+        "pattern_effectiveness": 0.9
+    }
+}
